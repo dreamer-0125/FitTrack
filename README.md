@@ -101,12 +101,6 @@ Secure user authentication 🔑
 
 Scalable database handling with Firebase 🌐
 
----
-## 👨‍💻 Author
-
-Dasun Wijayathilaka
-📍 Colombo, Sri Lanka
-
 
 ---
 ⭐ Contribute
