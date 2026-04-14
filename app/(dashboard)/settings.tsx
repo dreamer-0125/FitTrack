@@ -72,22 +72,28 @@ const SettingsScreen = () => {
   ];
 
   return (
-    <View className="flex-1 bg-gray-50">
+    <View className="flex-1 bg-gradient-to-br from-gray-50 via-white to-primary-50">
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 32 }}
       >
         {/* Header with Profile */}
-        <View className="bg-gradient-to-br from-red-500 to-red-600 pt-16 pb-8 px-6 mb-6">
+        <View className="bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 pt-16 pb-8 px-6 mb-6">
           <View className="items-center">
             <View className="relative">
               <Image
                 source={{
                   uri: "",
                 }}
-                className="w-24 h-24 rounded-full border-4 border-white/20"
+                className="w-24 h-24 rounded-full border-4 border-white/30"
+                style={{
+                  shadowColor: "#000",
+                  shadowOffset: { width: 0, height: 4 },
+                  shadowOpacity: 0.3,
+                  shadowRadius: 8,
+                }}
               />
-              <View className="absolute -bottom-2 -right-2 bg-white w-8 h-8 rounded-full items-center justify-center shadow-lg">
+              <View className="absolute -bottom-2 -right-2 bg-white w-8 h-8 rounded-full items-center justify-center shadow-medium">
                 <MaterialIcons name="edit" size={16} color="#dc2626" />
               </View>
             </View>
@@ -116,13 +122,13 @@ const SettingsScreen = () => {
 
         {/* Settings Options */}
         <View className="px-6">
-          <Text className="text-xl font-bold text-gray-800 mb-4">Settings</Text>
+          <Text className="text-xl font-bold text-gray-900 mb-4">Settings</Text>
 
           <View className="space-y-3">
             {settingsOptions.map((option, index) => (
               <TouchableOpacity
                 key={index}
-                className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex-row items-center"
+                className="bg-white/90 backdrop-blur-xl rounded-2xl p-4 shadow-soft border border-white/60 flex-row items-center"
                 activeOpacity={0.7}
               >
                 <View
@@ -139,7 +145,7 @@ const SettingsScreen = () => {
                   <Text className="text-gray-900 font-semibold text-base mb-1">
                     {option.title}
                   </Text>
-                  <Text className="text-gray-500 text-sm">
+                  <Text className="text-gray-600 text-sm">
                     {option.subtitle}
                   </Text>
                 </View>
@@ -151,34 +157,34 @@ const SettingsScreen = () => {
 
           {/* Quick Actions */}
           <View className="mt-8">
-            <Text className="text-xl font-bold text-gray-800 mb-4">
+            <Text className="text-xl font-bold text-gray-900 mb-4">
               Quick Actions
             </Text>
 
             <View className="flex-row space-x-3 mb-4">
-              <TouchableOpacity className="bg-white rounded-2xl p-4 flex-1 items-center shadow-sm border border-gray-100">
-                <View className="bg-blue-100 w-12 h-12 rounded-xl items-center justify-center mb-3">
-                  <Ionicons name="download-outline" size={22} color="#2563eb" />
+              <TouchableOpacity className="bg-white/90 backdrop-blur-xl rounded-2xl p-4 flex-1 items-center shadow-soft border border-white/60">
+                <View className="bg-gradient-to-br from-blue-500 to-blue-600 w-12 h-12 rounded-xl items-center justify-center mb-3 shadow-sm">
+                  <Ionicons name="download-outline" size={22} color="white" />
                 </View>
-                <Text className="text-gray-800 font-semibold text-sm text-center">
+                <Text className="text-gray-900 font-semibold text-sm text-center">
                   Export Data
                 </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity className="bg-white rounded-2xl p-4 flex-1 items-center shadow-sm border border-gray-100">
-                <View className="bg-green-100 w-12 h-12 rounded-xl items-center justify-center mb-3">
-                  <Ionicons name="share-outline" size={22} color="#16a34a" />
+              <TouchableOpacity className="bg-white/90 backdrop-blur-xl rounded-2xl p-4 flex-1 items-center shadow-soft border border-white/60">
+                <View className="bg-gradient-to-br from-green-500 to-green-600 w-12 h-12 rounded-xl items-center justify-center mb-3 shadow-sm">
+                  <Ionicons name="share-outline" size={22} color="white" />
                 </View>
-                <Text className="text-gray-800 font-semibold text-sm text-center">
+                <Text className="text-gray-900 font-semibold text-sm text-center">
                   Share App
                 </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity className="bg-white rounded-2xl p-4 flex-1 items-center shadow-sm border border-gray-100">
-                <View className="bg-yellow-100 w-12 h-12 rounded-xl items-center justify-center mb-3">
-                  <Ionicons name="star-outline" size={22} color="#ca8a04" />
+              <TouchableOpacity className="bg-white/90 backdrop-blur-xl rounded-2xl p-4 flex-1 items-center shadow-soft border border-white/60">
+                <View className="bg-gradient-to-br from-yellow-500 to-yellow-600 w-12 h-12 rounded-xl items-center justify-center mb-3 shadow-sm">
+                  <Ionicons name="star-outline" size={22} color="white" />
                 </View>
-                <Text className="text-gray-800 font-semibold text-sm text-center">
+                <Text className="text-gray-900 font-semibold text-sm text-center">
                   Rate Us
                 </Text>
               </TouchableOpacity>
@@ -186,15 +192,15 @@ const SettingsScreen = () => {
           </View>
 
           {/* App Info Card */}
-          <View className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-6 mb-6">
+          <View className="bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-3xl p-6 mb-6 shadow-medium">
             <View className="flex-row items-center justify-between mb-4">
               <View>
                 <Text className="text-white text-lg font-bold">
-                  GymTracker Pro
+                  FitTrack Pro
                 </Text>
                 <Text className="text-gray-300 text-sm">Version 2.1.0</Text>
               </View>
-              <View className="bg-white/20 px-3 py-1 rounded-full">
+              <View className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/30">
                 <Text className="text-white text-xs font-semibold">
                   PREMIUM
                 </Text>
@@ -206,7 +212,7 @@ const SettingsScreen = () => {
               personalized workout plans.
             </Text>
 
-            <TouchableOpacity className="bg-white/10 py-2 px-4 rounded-xl self-start">
+            <TouchableOpacity className="bg-white/15 backdrop-blur-md py-2.5 px-5 rounded-xl self-start border border-white/20">
               <Text className="text-white font-semibold text-sm">
                 Learn More
               </Text>
@@ -214,15 +220,22 @@ const SettingsScreen = () => {
           </View>
 
           {/* Logout Section */}
-          <View className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <Text className="text-lg font-semibold text-gray-800 mb-4">
+          <View className="bg-white/90 backdrop-blur-xl rounded-3xl p-6 shadow-soft border border-white/60">
+            <Text className="text-lg font-semibold text-gray-900 mb-4">
               Account Actions
             </Text>
 
             <TouchableOpacity
               onPress={handleLogout}
               activeOpacity={0.85}
-              className="flex-row items-center justify-center bg-gradient-to-r from-red-500 to-red-600 py-4 px-5 rounded-xl shadow-lg"
+              className="flex-row items-center justify-center py-4 px-5 rounded-xl"
+              style={{
+                backgroundColor: '#dc2626',
+                shadowColor: '#dc2626',
+                shadowOffset: { width: 0, height: 8 },
+                shadowOpacity: 0.3,
+                shadowRadius: 12,
+              }}
             >
               <Ionicons name="log-out-outline" size={22} color="white" />
               <Text className="ml-3 text-white text-lg font-semibold">
@@ -230,8 +243,8 @@ const SettingsScreen = () => {
               </Text>
             </TouchableOpacity>
 
-            <Text className="text-center text-gray-500 text-sm mt-4">
-              You'll be redirected to the login screen
+            <Text className="text-center text-gray-600 text-sm mt-4">
+              You&apos;ll be redirected to the login screen
             </Text>
           </View>
         </View>

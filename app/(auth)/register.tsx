@@ -124,7 +124,7 @@ const Register = () => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      className="flex-1 bg-gray-50"
+      className="flex-1 bg-gradient-to-br from-gray-50 via-white to-primary-50"
     >
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -141,7 +141,7 @@ const Register = () => {
         >
           <TouchableOpacity
             onPress={() => router.back()}
-            className="flex-row items-center bg-white rounded-xl sm:rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 self-start shadow-sm border border-gray-100"
+            className="flex-row items-center bg-white/80 backdrop-blur-lg rounded-2xl px-4 py-3 self-start shadow-soft border border-white/60"
             activeOpacity={0.8}
           >
             <Ionicons
@@ -171,17 +171,17 @@ const Register = () => {
             }}
             className="items-center mb-5 sm:mb-8"
           >
-            <View className="bg-red-500 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl items-center justify-center mb-4 sm:mb-6 shadow-lg shadow-red-500/25">
+            <View className="bg-gradient-to-br from-primary-500 to-primary-700 w-20 h-20 rounded-3xl items-center justify-center mb-4 shadow-medium">
               <Ionicons
                 name="person-add"
                 size={isSmallDevice ? 32 : 40}
                 color="white"
               />
             </View>
-            <Text className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-2 sm:mb-3 text-center px-4">
-              Join FitnessApp
+            <Text className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600 bg-clip-text text-transparent mb-2 text-center px-4">
+              Join FitTrack
             </Text>
-            <Text className="text-sm sm:text-base md:text-lg text-gray-600 text-center font-medium px-6 sm:px-8">
+            <Text className="text-sm sm:text-base text-gray-600 text-center font-medium px-6 sm:px-8">
               Create your account to start your fitness journey and achieve your
               goals
             </Text>
@@ -193,12 +193,12 @@ const Register = () => {
               opacity: formAnim,
               transform: [{ translateY: slideAnim }],
             }}
-            className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 shadow-lg shadow-gray-200 border border-gray-100 mb-4 sm:mb-8"
+            className="bg-white/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-soft border border-white/60 mb-4 sm:mb-8"
           >
             {/* Full Name Input */}
-            <View className="mb-4 sm:mb-6">
-              <View className="flex-row items-center mb-2 sm:mb-3">
-                <View className="bg-red-500 w-1 h-5 sm:h-6 rounded-full mr-2 sm:mr-3" />
+            <View className="mb-4 sm:mb-5">
+              <View className="flex-row items-center mb-2">
+                <View className="bg-gradient-to-b from-primary-500 to-primary-600 w-1 h-5 rounded-full mr-2" />
                 <Text className="text-gray-800 font-bold text-sm sm:text-base">
                   Full Name
                 </Text>
@@ -206,26 +206,26 @@ const Register = () => {
               <View className="relative">
                 <TextInput
                   placeholder="Enter your full name"
-                  className="px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base text-gray-900 bg-gray-50 border border-gray-200 rounded-xl sm:rounded-2xl pr-12 sm:pr-14 focus:border-red-500"
+                  className="px-4 sm:px-5 py-3.5 text-sm sm:text-base text-gray-900 bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-2xl pr-12 focus:border-primary-500 focus:shadow-sm"
                   value={fullName}
                   onChangeText={setFullName}
                   autoCapitalize="words"
                   style={{ fontSize: isSmallDevice ? 14 : 16 }}
                 />
-                <View className="absolute right-3 sm:right-4 top-3 sm:top-4 bg-gray-100 w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl items-center justify-center">
+                <View className="absolute right-3 top-3.5 bg-primary-100 w-8 h-8 rounded-xl items-center justify-center">
                   <Ionicons
                     name="person-outline"
                     size={isSmallDevice ? 16 : 18}
-                    color="#6b7280"
+                    color="#dc2626"
                   />
                 </View>
               </View>
             </View>
 
             {/* Email Input */}
-            <View className="mb-4 sm:mb-6">
-              <View className="flex-row items-center mb-2 sm:mb-3">
-                <View className="bg-red-500 w-1 h-5 sm:h-6 rounded-full mr-2 sm:mr-3" />
+            <View className="mb-4 sm:mb-5">
+              <View className="flex-row items-center mb-2">
+                <View className="bg-gradient-to-b from-primary-500 to-primary-600 w-1 h-5 rounded-full mr-2" />
                 <Text className="text-gray-800 font-bold text-sm sm:text-base">
                   Email Address
                 </Text>
@@ -233,27 +233,27 @@ const Register = () => {
               <View className="relative">
                 <TextInput
                   placeholder="Enter your email address"
-                  className="px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base text-gray-900 bg-gray-50 border border-gray-200 rounded-xl sm:rounded-2xl pr-12 sm:pr-14 focus:border-red-500"
+                  className="px-4 sm:px-5 py-3.5 text-sm sm:text-base text-gray-900 bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-2xl pr-12 focus:border-primary-500 focus:shadow-sm"
                   value={email}
                   onChangeText={setEmail}
                   keyboardType="email-address"
                   autoCapitalize="none"
                   style={{ fontSize: isSmallDevice ? 14 : 16 }}
                 />
-                <View className="absolute right-3 sm:right-4 top-3 sm:top-4 bg-gray-100 w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl items-center justify-center">
+                <View className="absolute right-3 top-3.5 bg-primary-100 w-8 h-8 rounded-xl items-center justify-center">
                   <Ionicons
                     name="mail-outline"
                     size={isSmallDevice ? 16 : 18}
-                    color="#6b7280"
+                    color="#dc2626"
                   />
                 </View>
               </View>
             </View>
 
             {/* Password Input */}
-            <View className="mb-4 sm:mb-6">
-              <View className="flex-row items-center mb-2 sm:mb-3">
-                <View className="bg-red-500 w-1 h-5 sm:h-6 rounded-full mr-2 sm:mr-3" />
+            <View className="mb-4 sm:mb-5">
+              <View className="flex-row items-center mb-2">
+                <View className="bg-gradient-to-b from-primary-500 to-primary-600 w-1 h-5 rounded-full mr-2" />
                 <Text className="text-gray-800 font-bold text-sm sm:text-base">
                   Password
                 </Text>
@@ -266,20 +266,20 @@ const Register = () => {
                       : "Enter secure password (min. 6 characters)"
                   }
                   secureTextEntry={!showPassword}
-                  className="px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base text-gray-900 bg-gray-50 border border-gray-200 rounded-xl sm:rounded-2xl pr-12 sm:pr-14 focus:border-red-500"
+                  className="px-4 sm:px-5 py-3.5 text-sm sm:text-base text-gray-900 bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-2xl pr-14 focus:border-primary-500 focus:shadow-sm"
                   value={password}
                   onChangeText={setPassword}
                   style={{ fontSize: isSmallDevice ? 14 : 16 }}
                 />
                 <TouchableOpacity
-                  className="absolute right-3 sm:right-4 top-3 sm:top-4 bg-gray-100 w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl items-center justify-center"
+                  className="absolute right-3 top-3.5 bg-primary-100 w-8 h-8 rounded-xl items-center justify-center"
                   onPress={() => setShowPassword(!showPassword)}
                   activeOpacity={0.7}
                 >
                   <Ionicons
                     name={showPassword ? "eye-off-outline" : "eye-outline"}
                     size={isSmallDevice ? 16 : 18}
-                    color="#6b7280"
+                    color="#dc2626"
                   />
                 </TouchableOpacity>
               </View>
@@ -287,8 +287,8 @@ const Register = () => {
 
             {/* Confirm Password Input */}
             <View className="mb-6 sm:mb-8">
-              <View className="flex-row items-center mb-2 sm:mb-3">
-                <View className="bg-red-500 w-1 h-5 sm:h-6 rounded-full mr-2 sm:mr-3" />
+              <View className="flex-row items-center mb-2">
+                <View className="bg-gradient-to-b from-primary-500 to-primary-600 w-1 h-5 rounded-full mr-2" />
                 <Text className="text-gray-800 font-bold text-sm sm:text-base">
                   Confirm Password
                 </Text>
@@ -297,13 +297,13 @@ const Register = () => {
                 <TextInput
                   placeholder="Confirm your password"
                   secureTextEntry={!showConfirmPassword}
-                  className="px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base text-gray-900 bg-gray-50 border border-gray-200 rounded-xl sm:rounded-2xl pr-12 sm:pr-14 focus:border-red-500"
+                  className="px-4 sm:px-5 py-3.5 text-sm sm:text-base text-gray-900 bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-2xl pr-14 focus:border-primary-500 focus:shadow-sm"
                   value={confirmPassword}
                   onChangeText={setConfirmPassword}
                   style={{ fontSize: isSmallDevice ? 14 : 16 }}
                 />
                 <TouchableOpacity
-                  className="absolute right-3 sm:right-4 top-3 sm:top-4 bg-gray-100 w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl items-center justify-center"
+                  className="absolute right-3 top-3.5 bg-primary-100 w-8 h-8 rounded-xl items-center justify-center"
                   onPress={() => setShowConfirmPassword(!showConfirmPassword)}
                   activeOpacity={0.7}
                 >
@@ -312,7 +312,7 @@ const Register = () => {
                       showConfirmPassword ? "eye-off-outline" : "eye-outline"
                     }
                     size={isSmallDevice ? 16 : 18}
-                    color="#6b7280"
+                    color="#dc2626"
                   />
                 </TouchableOpacity>
               </View>
@@ -322,12 +322,18 @@ const Register = () => {
             <TouchableOpacity
               onPress={handleRegister}
               disabled={isLoading}
-              activeOpacity={0.8}
+              activeOpacity={0.85}
               className="mb-4 sm:mb-6"
             >
               <View
-                className="py-4 sm:py-5 rounded-xl sm:rounded-2xl shadow-lg shadow-red-500/25"
-                style={{ backgroundColor: "#dc2626" }}
+                className="py-4 sm:py-5 rounded-2xl shadow-medium"
+                style={{ 
+                  backgroundColor: '#dc2626',
+                  shadowColor: '#dc2626',
+                  shadowOffset: { width: 0, height: 8 },
+                  shadowOpacity: 0.3,
+                  shadowRadius: 12,
+                }}
               >
                 <View className="flex-row items-center justify-center">
                   {isLoading ? (
@@ -350,19 +356,19 @@ const Register = () => {
             </TouchableOpacity>
 
             {/* Terms and Privacy */}
-            <View className="bg-red-50 rounded-xl sm:rounded-2xl p-3 sm:p-4 mb-6 sm:mb-8">
-              <Text className="text-center text-xs sm:text-sm text-gray-700 leading-4 sm:leading-5">
+            <View className="bg-gradient-to-r from-primary-50 to-primary-100/50 rounded-2xl p-4 mb-6 border border-primary-200">
+              <Text className="text-center text-xs sm:text-sm text-gray-700 leading-5">
                 By creating an account, you agree to our{" "}
-                <Text className="text-red-600 font-bold">Terms of Service</Text>{" "}
+                <Text className="text-primary-600 font-bold">Terms of Service</Text>{" "}
                 and{" "}
-                <Text className="text-red-600 font-bold">Privacy Policy</Text>
+                <Text className="text-primary-600 font-bold">Privacy Policy</Text>
               </Text>
             </View>
 
             {/* Divider */}
             <View className="flex-row items-center mb-5 sm:mb-8">
               <View className="flex-1 h-px bg-gray-200" />
-              <View className="bg-gray-100 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mx-3 sm:mx-4">
+              <View className="bg-white/80 px-4 py-2 rounded-full mx-3 border border-gray-100">
                 <Text className="text-gray-500 font-semibold text-xs sm:text-sm">
                   Or continue with
                 </Text>
@@ -373,11 +379,11 @@ const Register = () => {
             {/* Social Registration Buttons */}
             <View className="flex-row space-x-3 sm:space-x-4 mb-6 sm:mb-8">
               <TouchableOpacity
-                className="flex-1 bg-gray-50 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-gray-200 shadow-sm"
+                className="flex-1 bg-white/80 backdrop-blur-sm py-3.5 rounded-2xl border border-gray-200 shadow-soft"
                 activeOpacity={0.8}
               >
                 <View className="flex-row items-center justify-center">
-                  <View className="bg-white w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl items-center justify-center mr-2 sm:mr-3 shadow-sm">
+                  <View className="bg-white w-8 h-8 rounded-xl items-center justify-center mr-2 shadow-sm">
                     <Ionicons
                       name="logo-google"
                       size={isSmallDevice ? 16 : 18}
@@ -391,11 +397,11 @@ const Register = () => {
               </TouchableOpacity>
 
               <TouchableOpacity
-                className="flex-1 bg-gray-50 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-gray-200 shadow-sm"
+                className="flex-1 bg-white/80 backdrop-blur-sm py-3.5 rounded-2xl border border-gray-200 shadow-soft"
                 activeOpacity={0.8}
               >
                 <View className="flex-row items-center justify-center">
-                  <View className="bg-white w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl items-center justify-center mr-2 sm:mr-3 shadow-sm">
+                  <View className="bg-white w-8 h-8 rounded-xl items-center justify-center mr-2 shadow-sm">
                     <Ionicons
                       name="logo-apple"
                       size={isSmallDevice ? 16 : 18}
@@ -410,16 +416,16 @@ const Register = () => {
             </View>
 
             {/* Login Link */}
-            <View className="bg-gray-50 rounded-xl sm:rounded-2xl p-3 sm:p-4 items-center">
+            <View className="bg-gradient-to-r from-accent-50 to-primary-50 rounded-2xl p-4 items-center border border-accent-100">
               <View className="flex-row flex-wrap justify-center">
-                <Text className="text-gray-600 font-medium text-sm sm:text-base">
+                <Text className="text-gray-700 font-medium text-sm sm:text-base">
                   Already have an account?{" "}
                 </Text>
                 <Pressable
                   onPress={() => router.back()}
                   style={{ marginLeft: 4 }}
                 >
-                  <Text className="text-red-600 font-bold text-sm sm:text-base">
+                  <Text className="text-primary-600 font-bold text-sm sm:text-base">
                     Sign In Here
                   </Text>
                 </Pressable>
@@ -428,11 +434,11 @@ const Register = () => {
           </Animated.View>
         </View>
 
-        {/* Decorative Elements - Hidden on small devices */}
+        {/* Decorative Elements */}
         {!isSmallDevice && (
           <>
-            <View className="absolute top-32 right-8 w-20 h-20 sm:w-24 sm:h-24 bg-red-50 rounded-full opacity-20" />
-            <View className="absolute bottom-40 left-6 w-14 h-14 sm:w-16 sm:h-16 bg-red-100 rounded-full opacity-15" />
+            <View className="absolute top-32 right-8 w-24 h-24 bg-primary-200 rounded-full opacity-20 blur-2xl" />
+            <View className="absolute bottom-40 left-6 w-20 h-20 bg-accent-200 rounded-full opacity-15 blur-2xl" />
           </>
         )}
       </ScrollView>

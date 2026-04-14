@@ -122,10 +122,10 @@ const TaskScreen = () => {
         }}
         className="mb-4"
       >
-        <View className="bg-white rounded-3xl p-6 shadow-lg shadow-gray-200 border border-gray-100">
+        <View className="bg-white/90 backdrop-blur-xl rounded-3xl p-6 shadow-soft border border-white/60">
           {/* Card Header with Icon */}
           <View className="flex-row items-start mb-4">
-            <View className="bg-red-100 w-12 h-12 rounded-2xl items-center justify-center mr-4 flex-shrink-0">
+            <View className="bg-gradient-to-br from-primary-100 to-primary-200 w-12 h-12 rounded-2xl items-center justify-center mr-4 flex-shrink-0">
               <Ionicons name="barbell-outline" size={22} color="#dc2626" />
             </View>
             <View className="flex-1 min-w-0">
@@ -133,7 +133,7 @@ const TaskScreen = () => {
                 {task.title}
               </Text>
               {task.description && (
-                <Text className="text-gray-600 text-base leading-relaxed">
+                <Text className="text-gray-700 text-base leading-relaxed">
                   {task.description}
                 </Text>
               )}
@@ -143,7 +143,7 @@ const TaskScreen = () => {
           {/* Action Buttons */}
           <View className="flex-row justify-end space-x-4 pt-4 border-t border-gray-100">
             <TouchableOpacity
-              className="flex-row items-center bg-gray-50 px-4 py-2.5 rounded-xl"
+              className="flex-row items-center bg-gradient-to-r from-gray-50 to-white px-4 py-2.5 rounded-xl border border-gray-200"
               onPress={() => router.push(`/(dashboard)/tasks/${task.id}`)}
               activeOpacity={0.7}
             >
@@ -154,7 +154,7 @@ const TaskScreen = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              className="flex-row items-center bg-red-50 px-4 py-2.5 rounded-xl"
+              className="flex-row items-center bg-gradient-to-r from-primary-50 to-primary-100/50 px-4 py-2.5 rounded-xl border border-primary-200"
               onPress={() => {
                 console.log("Deleting task:", task.id);
                 handelDelete(task.id || "");
@@ -162,7 +162,7 @@ const TaskScreen = () => {
               activeOpacity={0.7}
             >
               <MaterialIcons name="delete-outline" size={20} color="#dc2626" />
-              <Text className="ml-2 text-red-600 font-semibold text-sm">
+              <Text className="ml-2 text-primary-600 font-semibold text-sm">
                 Delete
               </Text>
             </TouchableOpacity>
@@ -180,20 +180,27 @@ const TaskScreen = () => {
       }}
       className="items-center justify-center mt-16"
     >
-      <View className="bg-white rounded-3xl p-8 shadow-lg shadow-gray-200 border border-gray-100 mx-4">
-        <View className="bg-red-100 w-20 h-20 rounded-full items-center justify-center mx-auto mb-6">
+      <View className="bg-white/90 backdrop-blur-xl rounded-4xl p-8 shadow-soft border border-white/60 mx-4">
+        <View className="bg-gradient-to-br from-primary-100 to-primary-200 w-20 h-20 rounded-full items-center justify-center mx-auto mb-6">
           <Ionicons name="barbell-outline" size={32} color="#dc2626" />
         </View>
         <Text className="text-xl font-bold text-gray-900 text-center mb-3">
           No Workouts Yet
         </Text>
-        <Text className="text-gray-600 text-center text-base leading-relaxed mb-6">
+        <Text className="text-gray-700 text-center text-base leading-relaxed mb-6">
           Start your fitness journey by creating your first workout routine.
         </Text>
         <TouchableOpacity
-          className="bg-red-500 px-6 py-3 rounded-xl"
+          className="px-6 py-3 rounded-xl"
           onPress={() => router.push("/(dashboard)/tasks/new")}
           activeOpacity={0.8}
+          style={{
+            backgroundColor: '#dc2626',
+            shadowColor: '#dc2626',
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: 0.3,
+            shadowRadius: 8,
+          }}
         >
           <Text className="text-white font-semibold text-center">
             Create First Workout
@@ -204,7 +211,7 @@ const TaskScreen = () => {
   );
 
   return (
-    <View className="flex-1 bg-gray-50">
+    <View className="flex-1 bg-gradient-to-br from-gray-50 via-white to-primary-50">
       {/* Animated Header */}
       <Animated.View
         style={{
@@ -213,17 +220,17 @@ const TaskScreen = () => {
         }}
         className="px-6 pt-12 pb-6"
       >
-        <View className="bg-white rounded-3xl p-6 shadow-lg shadow-gray-200 border border-gray-100">
+        <View className="bg-white/90 backdrop-blur-xl rounded-4xl p-6 shadow-soft border border-white/60">
           <View className="flex-row items-center justify-between">
             <View className="flex-row items-center">
-              <View className="bg-red-500 w-12 h-12 rounded-2xl items-center justify-center mr-4">
-                <Ionicons name="fitness-outline" size={24} color="white" />
+              <View className="bg-gradient-to-br from-primary-500 to-primary-700 w-14 h-14 rounded-3xl items-center justify-center mr-4 shadow-medium">
+                <Ionicons name="fitness-outline" size={26} color="white" />
               </View>
               <View>
-                <Text className="text-2xl sm:text-3xl font-bold text-gray-900">
+                <Text className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent">
                   Your Workouts
                 </Text>
-                <Text className="text-gray-600 text-sm sm:text-base font-medium mt-1">
+                <Text className="text-gray-700 text-sm sm:text-base font-medium mt-1">
                   {task.length} {task.length === 1 ? "workout" : "workouts"} in
                   your routine
                 </Text>
@@ -270,17 +277,24 @@ const TaskScreen = () => {
         className="absolute bottom-8 right-6"
       >
         <TouchableOpacity
-          className="bg-gradient-to-r from-red-500 to-red-600 w-16 h-16 rounded-2xl shadow-2xl shadow-red-500/40 items-center justify-center"
+          className="w-16 h-16 rounded-3xl items-center justify-center"
           activeOpacity={0.8}
           onPress={() => router.push("/(dashboard)/tasks/new")}
+          style={{
+            backgroundColor: '#dc2626',
+            shadowColor: '#dc2626',
+            shadowOffset: { width: 0, height: 8 },
+            shadowOpacity: 0.4,
+            shadowRadius: 16,
+          }}
         >
           <MaterialIcons name="add" size={28} color="#fff" />
         </TouchableOpacity>
       </Animated.View>
 
       {/* Decorative Elements */}
-      <View className="absolute top-32 right-8 w-24 h-24 bg-red-50 rounded-full opacity-30" />
-      <View className="absolute bottom-32 left-4 w-16 h-16 bg-red-100 rounded-full opacity-20" />
+      <View className="absolute top-32 right-8 w-32 h-32 bg-primary-200 rounded-full opacity-20 blur-3xl" />
+      <View className="absolute bottom-32 left-4 w-24 h-24 bg-accent-200 rounded-full opacity-15 blur-3xl" />
     </View>
   );
 };
